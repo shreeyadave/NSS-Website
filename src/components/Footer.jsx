@@ -10,10 +10,31 @@ const Footer = () => {
     <footer style={{ backgroundColor: "#E1F0EE" }}>
       <Stack
         direction="row"
+        alignItems={"center"}
         sx={{ fontFamily: "Poppins" }}
         justifyContent={"space-around"}
       >
         <FooterLogo />
+
+        {/* Will remove later */}
+        <p
+          style={{ textAlign: "center", fontSize: "1.5rem", fontWeight: "200" }}
+        >
+          Made with 💞, by{" "}
+          <a
+            target="blank"
+            href="https://barik.super.site"
+            style={{
+              textDecoration: "none",
+              fontFamily: "Arvo",
+              fontWeight: "600",
+              fontSize: "1.8rem",
+              color: "black",
+            }}
+          >
+            barik.
+          </a>
+        </p>
         <div>
           <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
             <TileLayer
