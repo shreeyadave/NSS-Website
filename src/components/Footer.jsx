@@ -20,7 +20,7 @@ const Footer = () => {
           style={{ textAlign: "center", fontSize: "1.5rem", fontWeight: "200" }}
         >
           Made with 💞, by{" "}
-          <a
+          {/* <a
             target="blank"
             href="https://barik.super.site"
             style={{
@@ -32,7 +32,7 @@ const Footer = () => {
             }}
           >
             barik.
-          </a>
+          </a> */}
         </p>
         Checking for links
         <div>
