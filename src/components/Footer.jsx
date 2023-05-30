@@ -15,8 +15,7 @@ const Footer = () => {
         justifyContent={"space-around"}
       >
         <FooterLogo />
-
-        {/* Will remove later */}
+        Will remove later
         <p
           style={{ textAlign: "center", fontSize: "1.5rem", fontWeight: "200" }}
         >
@@ -35,6 +34,7 @@ const Footer = () => {
             barik.
           </a>
         </p>
+        Checking for links
         <div>
           <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
             <TileLayer
