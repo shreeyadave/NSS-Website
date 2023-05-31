@@ -13,7 +13,7 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-export default function Gallery() {
+export default function GalleryView() {
   const controls = useAnimation();
 
   useEffect(() => {

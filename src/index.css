@@ -5,6 +5,10 @@
   height: 300px;
 }
 
+.MuiTab-root {
+  font-family: "DM Sans";
+}
+
 * {
   margin: 0;
   box-sizing: border-box;

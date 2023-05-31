@@ -1,6 +1,6 @@
 import { Box, Button, Stack } from "@mui/material";
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Memories() {
   return (
     <Box sx={{ flexBasis: "60%" }}>
@@ -34,22 +34,24 @@ export default function Memories() {
         Our volunteers regulary visit nearby villages to educate people
       </p>
       <Stack direction="row" gap={1} sx={{ pt: 5 }}>
-        <Button
-          variant="outlined"
-          style={{
-            borderRadius: 0,
-            textTransform: "none",
-            height: "40px",
-            color: "black",
-            width: "200PX",
-            border: "2px black solid",
-            fontSize: "1.1rem",
-            fontFamily: "DM Sans",
-          }}
-          disableElevation
-        >
-          EXPLORE GALLERY
-        </Button>
+        <Link to="/gallery">
+          <Button
+            variant="outlined"
+            style={{
+              borderRadius: 0,
+              textTransform: "none",
+              height: "40px",
+              color: "black",
+              width: "200PX",
+              border: "2px black solid",
+              fontSize: "1.1rem",
+              fontFamily: "DM Sans",
+            }}
+            disableElevation
+          >
+            EXPLORE GALLERY
+          </Button>
+        </Link>
       </Stack>
     </Box>
   );

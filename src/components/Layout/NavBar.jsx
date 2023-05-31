@@ -32,8 +32,13 @@ export default function NavBar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, px: isPhone ? 1 : 6, py: 1 }}>
-      <AppBar position="static" color="transparent" elevation={0}>
+    <>
+      <AppBar
+        position="sticky"
+        sx={{ backdropFilter: "blur(10px)", px: 8 }}
+        color="transparent"
+        elevation={0}
+      >
         <Toolbar>
           <Stack component="div" sx={{ flexGrow: 1 }}>
             <div
@@ -78,6 +83,6 @@ export default function NavBar() {
         openDialog={openDialog}
         handleCloseDialog={handleCloseDialog}
       />
-    </Box>
+    </>
   );
 }
