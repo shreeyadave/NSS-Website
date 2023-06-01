@@ -6,7 +6,9 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Layout from "../Layout/Layout";
 import GalleryView from "../GalleryView";
-import { Stack } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
+import LightGalleryView from "./LightGalleryView";
+import PageHeader from "../UI/PageHeader";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,27 +57,25 @@ export default function Gallery() {
 
   return (
     <Layout>
-      <Box
-        sx={{
-          pl: 9,
-          fontFamily: "DM Sans",
-          //   fontFamily: "Nothing You Could Do",
-          fontSize: "4rem",
-          py: 4,
-        }}
-      >
-        Gallery
-      </Box>
-      <Box
+      <PageHeader title="Gallery">
+        Welcome to our stunning photo gallery! Each photograph has been
+        carefully curated to that has captured some unique emotions, inspire
+        wanderlust, and celebrate the joy of community service.
+      </PageHeader>
+      <Stack
+        direction="row"
         sx={{
           flexGrow: 1,
-          pl: 6,
+          pl: 8,
           display: "flex",
+          height: "100%",
+          // alignItems: "center",
         }}
       >
         <Tabs
           orientation="vertical"
           variant="scrollable"
+          centered
           value={value}
           onChange={handleChange}
           aria-label="Vertical tabs example"
@@ -93,13 +93,13 @@ export default function Gallery() {
           })}
         </Tabs>
         <TabPanel value={value} index={0}>
-          <Stack direction={"row"} sx={{ mt: -4 }}>
+          <Stack direction={"row"}>
             <GalleryView />
             <GalleryView />
           </Stack>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <LightGalleryView />
         </TabPanel>
         <TabPanel value={value} index={2}>
           Item Three
@@ -116,7 +116,7 @@ export default function Gallery() {
         <TabPanel value={value} index={6}>
           Item Seven
         </TabPanel>
-      </Box>
+      </Stack>
     </Layout>
   );
 }
