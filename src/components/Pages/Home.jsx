@@ -9,8 +9,19 @@ import Divider from "@mui/material/Divider";
 import Memories from "../MemoriesText";
 import Footer from "../Layout/Footer";
 import Layout from "../Layout/Layout";
+import { motion } from "framer-motion";
+import CommitteeCard from "../UI/CommitteeCard";
+import ImageGrid from "../UI/ImageGrid";
 
 function App() {
+  const comittees = [
+    "Technical",
+    "Sports",
+    "Social",
+    "Finance",
+    "Documentation",
+    "Creative",
+  ];
   const isPhone = false;
   return (
     <>
@@ -36,10 +47,9 @@ function App() {
         </div>
 
         <Stack
-          direction={"row"}
+          direction={isPhone ? "column" : "row"}
           justifyContent={"space-around"}
           sx={{
-            height: "200px",
             fontFamily: "Poppins",
             fontWeight: "100",
             fontSize: "4rem",
@@ -63,10 +73,74 @@ function App() {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Box sx={{ pl: 10 }}>
-            <Memories />
-          </Box>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Box sx={{ pl: 10 }}>
+              <Memories />
+            </Box>
+          </motion.div>
           <GalleryView />
+        </Stack>
+        <Box
+          sx={{
+            fontFamily: "DM Sans",
+            fontSize: "4rem",
+            px: 8,
+          }}
+        >
+          Our Comittees
+        </Box>
+        <Stack direction="row" gap={2} sx={{ px: 8, py: 4 }}>
+          {comittees.map((title, index) => {
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: (index + 1) * 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <CommitteeCard title={title} />
+              </motion.div>
+            );
+          })}
+        </Stack>
+        <Box
+          sx={{
+            // textAlign: "center",
+            bgcolor: "black",
+            color: "white",
+            fontFamily: "DM Sans",
+            fontSize: "4rem",
+            px: 8,
+            pt: 2,
+          }}
+        >
+          What we do ?
+        </Box>
+        <Box
+          sx={{
+            // textAlign: "center",
+            bgcolor: "black",
+            color: "white",
+            fontFamily: "DM Sans",
+            fontSize: "1.2rem",
+            px: 8,
+            py: 2,
+          }}
+        >
+          Spreading happiness through community service has been one of the
+          primary objectives of NSS. With innovative activities across the
+          departments catering to all classes of the campus residents, we try to
+          create small, happy and memorable moments in their lives. We aim to
+          bring about a positive change in the society with focus on education
+          and development.
+        </Box>
+
+        <Stack sx={{ bgcolor: "black" }}>
+          <ImageGrid />
         </Stack>
       </Layout>
     </>

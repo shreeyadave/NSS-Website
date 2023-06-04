@@ -7,7 +7,7 @@ const Footer = () => {
   const position = [21.1702, 72.8311]; // Coordinates for SVnit location
 
   return (
-    <footer style={{ backgroundColor: "#E1F0EE" }}>
+    <footer style={{ backgroundColor: "black", color: "white" }}>
       <Stack
         direction="row"
         alignItems={"center"}
