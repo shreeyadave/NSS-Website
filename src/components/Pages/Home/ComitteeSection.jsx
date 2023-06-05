@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Box } from "@mui/material";
+import { Stack, Box, Grid } from "@mui/material";
 import ComitteeCard from "./CommitteeCard";
 import { motion } from "framer-motion";
 
@@ -11,6 +11,7 @@ const ComitteeSection = () => {
     "Finance",
     "Documentation",
     "Creative",
+    "Cultural",
   ];
   return (
     <Stack>
@@ -23,21 +24,29 @@ const ComitteeSection = () => {
       >
         Our Comittees
       </Box>
-      <Stack direction="row" gap={2} sx={{ px: 8, py: 4 }}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+        sx={{ px: 8, py: 6 }}
+      >
         {comittees.map((title, index) => {
           return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: (index + 1) * 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-            >
-              <ComitteeCard title={title} />
-            </motion.div>
+            <Grid item xs={6} lg={3} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: (index + 1) * 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+              >
+                <ComitteeCard title={title} />
+              </motion.div>
+            </Grid>
           );
         })}
-      </Stack>
+      </Grid>
     </Stack>
   );
 };

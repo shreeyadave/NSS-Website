@@ -17,6 +17,7 @@ import CounterSection from "./Home/CounterSection";
 import GallerySection from "./Home/GallerySection";
 import DutySection from "./Home/DutySection";
 import HeroSection from "./Home/HeroSection";
+import AboutSection from "./Home/AboutSection";
 
 function App() {
   const isPhone = false;
@@ -25,6 +26,7 @@ function App() {
       <Layout>
         <HeroSection />
         <CounterSection />
+        <AboutSection />
         <GallerySection />
         <ComitteeSection />
         <DutySection />
