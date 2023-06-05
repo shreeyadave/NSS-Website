@@ -13,6 +13,8 @@ export default function HeroSection() {
         paddingTop: 64,
         backgroundImage: `url(${bg})`,
         height: "100vh",
+        maxWidth: "100vw",
+        overflow: "hidden",
         marginTop: isPhone ? -56 : -64,
       }}
     >

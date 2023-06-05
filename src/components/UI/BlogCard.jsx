@@ -4,8 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
-export default function BlogCard() {
+export default function BlogCard(props) {
   return (
     <Card sx={{ display: "flex", mx: 10, my: 4, boxShadow: 5 }}>
       <CardActionArea>
@@ -24,7 +25,7 @@ export default function BlogCard() {
                 variant="h5"
                 component="div"
               >
-                NSS Wintercamp
+                {props.title}
               </Typography>
               <Typography
                 variant="body"
@@ -40,21 +41,23 @@ export default function BlogCard() {
                 journey that will leave you with cherished stories to share for
                 years to come.
               </Typography>
-              <Button
-                color="primary"
-                style={{
-                  borderRadius: 0,
-                  height: "40px",
-                  marginTop: "1rem",
-                  color: "black",
-                  width: "150px",
-                  border: "2px black solid",
-                  fontSize: "1.1rem",
-                  fontFamily: "DM Sans",
-                }}
-              >
-                READ MORE
-              </Button>
+              <Link to={props.to}>
+                <Button
+                  color="primary"
+                  style={{
+                    borderRadius: 0,
+                    height: "40px",
+                    marginTop: "1rem",
+                    color: "black",
+                    width: "150px",
+                    border: "2px black solid",
+                    fontSize: "1.1rem",
+                    fontFamily: "DM Sans",
+                  }}
+                >
+                  READ MORE
+                </Button>
+              </Link>
             </Stack>
           </CardContent>
         </Stack>
