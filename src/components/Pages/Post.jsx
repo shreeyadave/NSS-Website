@@ -217,11 +217,11 @@ export default function Post() {
     <Layout>
       <Stack alignItems={"center"}>
         <Box
-          sx={{ fontFamily: "DM Sans", fontSize: "4rem", width: "60%", py: 2 }}
+          sx={{ fontFamily: "DM Sans", fontSize: "4em", width: "50%", py: 2 }}
         >
           {postData.title}
         </Box>
-        <Box sx={{ width: "60%" }}>
+        <Box sx={{ width: "50%" }}>
           <ReactMarkdown className="md" remarkPlugins={[remarkGfm]}>
             {md}
           </ReactMarkdown>
