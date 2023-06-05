@@ -1,5 +1,5 @@
 import "./App.css";
-import GalleryView from "./components/GalleryView";
+import GalleryView from "./components/Pages/Home/GalleryView";
 import Events from "./components/Pages/Events";
 import Gallery from "./components/Pages/Gallery";
 import Home from "./components/Pages/Home";

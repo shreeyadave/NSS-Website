@@ -5,7 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Layout from "../Layout/Layout";
-import GalleryView from "../GalleryView";
+import GalleryView from "./Home/GalleryView";
 import { Divider, Stack } from "@mui/material";
 import LightGalleryView from "./LightGalleryView";
 import PageHeader from "../UI/PageHeader";

@@ -58,7 +58,7 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400",
+    url: "https://wallpapers.com/images/featured/wl9pg3zeygysq0ps.jpg",
     title: "Morning Routines",
     width: "40%",
   },
@@ -94,7 +94,7 @@ const images = [
   },
   {
     url: "https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400",
-    title: "Fitness",
+    title: "Old Age Visits",
     width: "20%",
   },
   {

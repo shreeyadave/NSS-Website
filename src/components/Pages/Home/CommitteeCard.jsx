@@ -3,7 +3,7 @@ import { Box, Stack } from "@mui/material";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import { motion } from "framer-motion";
 
-export default function CommitteeCard(props) {
+export default function ComitteeCard(props) {
   const [isHovered, setHovered] = useState(false);
   return (
     <Stack
