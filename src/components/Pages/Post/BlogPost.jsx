@@ -22,7 +22,7 @@ export default function BlogPost(props) {
             color: "gray",
           }}
         >
-          Published on <u>{date}</u>
+          Published on <u>{props.date}</u>
         </Box>
         <Box sx={{ fontFamily: "DM Sans", fontSize: "4em", width: "100%" }}>
           {props.title}
