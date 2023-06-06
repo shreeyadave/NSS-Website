@@ -6,35 +6,24 @@ import { useParams } from "react-router-dom";
 import { collection, query, where, getDoc, doc } from "@firebase/firestore";
 import { firestore } from "../../firebase";
 import remarkGfm from "remark-gfm";
-import { Box, Rating, Stack } from "@mui/material";
+// import rehypeRaw from "rehype-raw";
+
+import { Box, Grid, Rating, Stack } from "@mui/material";
+import BlogPost from "./Post/BlogPost";
 
 const md = `
-![cover](https://www.digitalocean.com/_next/static/media/intro-to-cloud.d49bc5f7.jpeg)
+![sdf](https://www.digitalocean.com/_next/static/media/intro-to-cloud.d49bc5f7.jpeg)
 
-An h1 header
+
+The Itinerary
 ============
-Paragraphs are separated by a blank line.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-2nd paragraph. *Italic*, **bold**, and monospace. Itemized lists
-look like:
+  * Location 1
+  * Location 2
+  * Location 3
 
-  * this one
-  * that one
-  * the other one
-
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
-
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
-
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
-
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 
 An h2 header
@@ -206,7 +195,12 @@ export default function Post() {
 
     if (docSnap.exists()) {
       setPostData(docSnap.data());
-      //   console.log("Document data:", docSnap.data());
+      setPostData((prev) => ({
+        ...prev,
+        ["content"]: prev.content.join("\n"),
+      }));
+
+      console.log("Document data:", docSnap.data()["content"].join("\n"));
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -215,8 +209,18 @@ export default function Post() {
 
   return (
     <Layout>
-      <Stack alignItems={"center"}>
-        <Stack sx={{ width: "50%" }}>
+      <Grid container justifyContent={"center"}>
+        {/* <Stack sx={{ width: "50%" }}>
+          <Box
+            sx={{
+              fontFamily: "Poppins",
+              fontWeight: "400",
+              pl: 1,
+              color: "gray",
+            }}
+          >
+            31/05/2022
+          </Box>
           <Box sx={{ fontFamily: "DM Sans", fontSize: "4em", width: "100%" }}>
             {postData.title}
           </Box>
@@ -245,13 +249,22 @@ export default function Post() {
           >
             5 minute read
           </Box>
-          <Box sx={{ width: "50%" }}>
+          <Box sx={{ width: "100%" }}>
             <ReactMarkdown className="md" remarkPlugins={[remarkGfm]}>
               {md}
             </ReactMarkdown>
           </Box>
-        </Stack>
-      </Stack>
+        </Stack> */}
+        <Grid item lg={6}>
+          <BlogPost
+            author={postData.author}
+            readingTime={postData.readingTime}
+            title={postData.title}
+            content={postData.content}
+            date={postData.date}
+          />
+        </Grid>
+      </Grid>
     </Layout>
   );
 }

@@ -9,10 +9,36 @@ p {
 }
 
 .md * {
-  font-family: "Roboto";
+  font-family: "DM Sans";
+  text-align: justify;
+  font-size: large;
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
 }
+
+.md h1 {
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.md h2 {
+  font-family: "DM Sans";
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+.md h3 {
+  font-family: "DM Sans";
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+
+.md img {
+  width: 100%;
+}
+
 
 body {
   margin: 0;
