@@ -38,7 +38,7 @@ export default function GalleryView() {
   return (
     <div id="gallery-container">
       <ImageList
-        sx={{ width: 500, background: "transparent", overflow: "hidden" }}
+        sx={{ width: 500, background: "transparent", overflowY: "hidden" }}
         variant="quilted"
         cols={4}
         rowHeight={121}

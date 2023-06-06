@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import HeroText from "../../HeroText";
 import bg from "../../../assets/bg.jpg";
 
@@ -18,16 +18,23 @@ export default function HeroSection() {
         marginTop: isPhone ? -56 : -64,
       }}
     >
-      <Stack
+      <Grid
+        container
+        lg={12}
+        height="100%"
         direction="row"
-        justifyContent="space-around"
-        sx={{ px: 8, pt: 15 }}
+        justifyContent="space-between"
+        sx={{ px: 10 }}
         gap={6}
         alignItems={"center"}
       >
-        <HeroText />
-        <UpdateCard />
-      </Stack>
+        <Grid item lg={7} sx={12}>
+          <HeroText />
+        </Grid>
+        <Grid item lg={4} sx={12}>
+          <UpdateCard />
+        </Grid>
+      </Grid>
     </div>
   );
 }

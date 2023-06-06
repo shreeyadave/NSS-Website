@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { collection, query, where, getDoc, doc } from "@firebase/firestore";
 import { firestore } from "../../firebase";
 import remarkGfm from "remark-gfm";
-import { Box, Stack } from "@mui/material";
+import { Box, Rating, Stack } from "@mui/material";
 
 const md = `
 ![cover](https://www.digitalocean.com/_next/static/media/intro-to-cloud.d49bc5f7.jpeg)
@@ -216,16 +216,41 @@ export default function Post() {
   return (
     <Layout>
       <Stack alignItems={"center"}>
-        <Box
-          sx={{ fontFamily: "DM Sans", fontSize: "4em", width: "50%", py: 2 }}
-        >
-          {postData.title}
-        </Box>
-        <Box sx={{ width: "50%" }}>
-          <ReactMarkdown className="md" remarkPlugins={[remarkGfm]}>
-            {md}
-          </ReactMarkdown>
-        </Box>
+        <Stack sx={{ width: "50%" }}>
+          <Box sx={{ fontFamily: "DM Sans", fontSize: "4em", width: "100%" }}>
+            {postData.title}
+          </Box>
+          <Stack
+            direction="row"
+            justifyContent={"space-between"}
+            alignItems={"flex-end"}
+          >
+            <Box sx={{ fontFamily: "DM Sans", color: "grey" }}>
+              by <u>@Pragnesh</u>
+            </Box>
+            <Rating value={4.5} precision={0.5} size="small"></Rating>
+          </Stack>
+          <Box
+            sx={{
+              bgcolor: "rgba(0,0,0,0.2)",
+              fontFamily: "DM Sans",
+              color: "gray",
+              mt: 2,
+              display: "inline-block",
+              width: "fit-content",
+              px: 1,
+              py: 0.5,
+              borderRadius: 1,
+            }}
+          >
+            5 minute read
+          </Box>
+          <Box sx={{ width: "50%" }}>
+            <ReactMarkdown className="md" remarkPlugins={[remarkGfm]}>
+              {md}
+            </ReactMarkdown>
+          </Box>
+        </Stack>
       </Stack>
     </Layout>
   );

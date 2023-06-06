@@ -5,6 +5,7 @@ import PageHeader from "../UI/PageHeader";
 import firebase from "firebase/compat/app";
 import { getDocs, collection } from "@firebase/firestore";
 import { firestore } from "../../firebase";
+import { Grid } from "@mui/material";
 export default function Events() {
   const [posts, setPosts] = useState([]);
 
@@ -32,9 +33,17 @@ export default function Events() {
         educational institutions, particularly colleges and universities, that
         have NSS units.
       </PageHeader>
-      {posts.map((post, index) => (
-        <BlogCard key={index} title={post.title} to={`/events/${post.id}`} />
-      ))}
+      <Grid container spacing={3} lg={12} sx={{ px: 10, py: 4 }}>
+        {posts.map((post, index) => (
+          <Grid item key={index} lg={3} md={6}>
+            <BlogCard
+              key={index}
+              title={post.title}
+              to={`/events/${post.id}`}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </Layout>
   );
 }

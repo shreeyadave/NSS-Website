@@ -7,7 +7,13 @@ export default function AboutSection() {
   return (
     <Grid
       container
-      sx={{ bgcolor: "black", color: "white", py: 10, px: 8 }}
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        py: 10,
+        px: 8,
+        overflow: "hidden",
+      }}
       alignItems={"center"}
     >
       <Grid item lg={6} sx={12}>
