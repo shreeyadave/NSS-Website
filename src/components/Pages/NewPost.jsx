@@ -17,7 +17,7 @@ export default function NewPost() {
   const initPostData = {
     date: date,
     author: "",
-    readingTime: "sdf",
+    readingTime: "",
     title: "",
     timestamp: 0,
     content: [],
