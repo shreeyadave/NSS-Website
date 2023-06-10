@@ -1,10 +1,11 @@
 import React from "react";
 import { Stack, Divider } from "@mui/material";
 import Counter from "../../UI/counter";
-import useMediaQuery from "@mui/material/useMediaQuery";
+// import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function CounterSection() {
-  const isPhone = useMediaQuery(theme.breakpoints.up("sm"));
+  const isPhone = false;
+  // const isPhone = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Stack
       direction={isPhone ? "column" : "row"}
