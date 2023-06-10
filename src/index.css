@@ -49,8 +49,10 @@ body {
 }
 
 .leaflet-container {
-  width: 400px;
-  height: 300px;
+  border-radius: 4px;
+  width: 90%;
+
+  height: 90%;
 }
 
 .MuiTab-root {

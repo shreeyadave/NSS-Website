@@ -27,9 +27,9 @@ function App() {
         <HeroSection />
         <CounterSection />
         <AboutSection />
+        <DutySection />
         <GallerySection />
         <ComitteeSection />
-        <DutySection />
       </Layout>
     </>
   );
