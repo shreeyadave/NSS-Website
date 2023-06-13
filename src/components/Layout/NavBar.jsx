@@ -90,7 +90,19 @@ export default function NavBar() {
                 )}
               </NavLink>
               <Button color="inherit">Volunteer</Button>
-              <Button color="inherit">Contacts</Button>
+              <NavLink to="/contact">
+                {({ isActive, isPending }) => (
+                  <Button
+                    sx={{
+                      textDecoration: "none",
+                      color: "black",
+                      borderBottom: isActive ? "1px  solid" : "",
+                      borderRadius: 0,
+                    }}
+                  >
+                    Contact Us
+                    </Button>)}
+                    </NavLink>
             </Box>
           )}
         </Toolbar>
