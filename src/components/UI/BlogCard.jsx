@@ -3,29 +3,47 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, Stack } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  CardActionArea,
+  CardActions,
+  Rating,
+  Stack,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
-export default function BlogCard() {
+export default function BlogCard(props) {
   return (
-    <Card sx={{ display: "flex", mx: 10, my: 4, boxShadow: 5 }}>
-      <CardActionArea>
-        <Stack direction="row">
+    <Card sx={{ display: "flex", boxShadow: 0 }} disableRipple>
+      <CardActionArea disableRipple>
+        <Stack direction="column">
           <CardMedia
             component="img"
-            sx={{ fontFamily: "DM Sans", width: "400px" }}
-            image="https://images.pexels.com/photos/269809/pexels-photo-269809.jpeg?auto=compress&cs=tinysrgb&w=600"
+            sx={{ fontFamily: "DM Sans", width: "100%" }}
+            image="https://media.nomadicmatt.com/2023/oaxitinerary2.jpeg"
             alt="green iguana"
           />
           <CardContent>
-            <Stack direction="column" gap={2}>
-              <Typography
-                gutterBottom
-                sx={{ fontFamily: "DM Sans", fontSize: "2rem" }}
-                variant="h5"
-                component="div"
-              >
-                NSS Wintercamp
-              </Typography>
+            <Stack direction="column" gap={0}>
+              <Stack direction="row" gap={2} justifyContent={"space-between"}>
+                <Typography
+                  gutterBottom
+                  sx={{ fontFamily: "DM Sans", fontSize: "2rem" }}
+                  variant="h5"
+                  component="div"
+                >
+                  {props.title}
+                </Typography>
+                <Avatar>P</Avatar>
+              </Stack>
+              <Rating
+                value={4.5}
+                precision={0.5}
+                readOnly
+                sx={{ pb: 2 }}
+              ></Rating>
               <Typography
                 variant="body"
                 sx={{ fontFamily: "Poppins", fontSize: "1.1rem" }}
@@ -36,25 +54,25 @@ export default function BlogCard() {
                 season and create lifelong memories in a cozy and vibrant
                 atmosphere. Our Winter Camp offers an unforgettable experience
                 filled with exciting activities, heartwarming moments, and
-                opportunities for personal growth. Get ready to embark on a
-                journey that will leave you with cherished stories to share for
-                years to come.
+                opportunities for personal growth.
               </Typography>
-              <Button
-                color="primary"
-                style={{
-                  borderRadius: 0,
-                  height: "40px",
-                  marginTop: "1rem",
-                  color: "black",
-                  width: "150px",
-                  border: "2px black solid",
-                  fontSize: "1.1rem",
-                  fontFamily: "DM Sans",
-                }}
-              >
-                READ MORE
-              </Button>
+              <Link to={props.to}>
+                <Button
+                  color="primary"
+                  style={{
+                    borderRadius: 0,
+                    height: "40px",
+                    marginTop: "1rem",
+                    color: "black",
+                    width: "150px",
+                    border: "2px black solid",
+                    fontSize: "1.1rem",
+                    fontFamily: "DM Sans",
+                  }}
+                >
+                  READ MORE
+                </Button>
+              </Link>
             </Stack>
           </CardContent>
         </Stack>

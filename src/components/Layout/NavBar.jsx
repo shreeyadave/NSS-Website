@@ -17,6 +17,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import NavDialog from "./NavDialog";
 import { Link, NavLink } from "react-router-dom";
+import NavButton from "../UI/NavButton";
 
 export default function NavBar() {
   const theme = useTheme();
@@ -74,6 +75,7 @@ export default function NavBar() {
             </IconButton>
           ) : (
             <Box>
+
               <Button color="inherit">About</Button>
               <NavLink to="/events">
                 {({ isActive, isPending }) => (
@@ -103,6 +105,13 @@ export default function NavBar() {
                     Contact Us
                     </Button>)}
                     </NavLink>
+              <NavButton to="/">Home</NavButton>
+              <NavButton to="/about">About</NavButton>
+              <NavButton to="/events">Events</NavButton>
+              <NavButton to="/gallery">Gallery</NavButton>
+              <NavButton to="/alumni">Alumni</NavButton>
+              <NavButton to="/contact">Contact</NavButton>
+              <NavButton to="/admin">Admin</NavButton>
             </Box>
           )}
         </Toolbar>
