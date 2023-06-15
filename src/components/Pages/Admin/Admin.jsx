@@ -6,7 +6,7 @@ import { auth, firestore } from "../../../firebase";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "@firebase/auth";
 import { Button } from "@mui/material";
 import DashBoard from "./DashBoard";
-// import SignIn from "./Register";
+import SignIn from "./Register";
 
 export default function Admin() {
   const [logged, setLogged] = useState(false);

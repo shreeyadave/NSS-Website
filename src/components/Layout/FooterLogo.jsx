@@ -3,12 +3,7 @@ import { Stack, Divider } from "@mui/material";
 
 export default function FooterLogo() {
   return (
-    <Stack
-      direction="column"
-      justifyContent={"center"}
-      sx={{ color: "white" }}
-      alignItems="center"
-    >
+    <Stack direction="column" justifyContent={"center"} alignItems="center">
       <Stack direction="row" gap={2} height={75}>
         <img
           style={{ height: "75px" }}

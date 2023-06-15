@@ -63,6 +63,9 @@ footer .leaflet-container {
 .map .leaflet-container{
   width: 1100px;
   height: 400px;
+  width: 400px;
+  height: 300px;
+
 }
 
 .MuiTab-root {
