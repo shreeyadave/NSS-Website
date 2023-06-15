@@ -1,12 +1,18 @@
-import React from 'react';
-import { Typography, Grid, Card, CardContent, CardMedia, Link } from '@mui/material';
-import Layout from '../../Layout/Layout';
-import AlumniBatch from './AlumniBatch';
-import alumni2019 from './AlumniData';
-import HeadingSection from './HeadingSection';
+import React from "react";
+import {
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Link,
+} from "@mui/material";
+import Layout from "../../Layout/Layout";
+import AlumniBatch from "./AlumniBatch";
+import alumni2019 from "./AlumniData";
+import HeadingSection from "./HeadingSection";
 
 const Alumni = () => {
-
   return (
     <Layout>
       <HeadingSection />
