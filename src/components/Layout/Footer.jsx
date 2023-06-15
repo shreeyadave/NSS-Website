@@ -55,7 +55,7 @@ const Footer = () => {
           <ListItem>Events</ListItem>
           <ListItem>Gallery</ListItem>
           <ListItem>Contact</ListItem>
-          <ListItem>Alumini</ListItem>
+          <ListItem>Alumni</ListItem>
           <ListItem>Articles</ListItem>
         </Grid>
         <Grid item lg={2} xs={12}>
