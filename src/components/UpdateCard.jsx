@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -7,16 +7,26 @@ import ListItem from "@mui/material/ListItem";
 import { motion } from "framer-motion";
 import ListItemText from "@mui/material/ListItemText";
 import { Box } from "@mui/material";
+import { firestore } from "../firebase";
+import { collection, getDocs } from "@firebase/firestore";
 
 const UpdateCard = () => {
-  const updates = [
-    "NSS Recruitment",
-    "NSS Orientation",
-    "Summer Camp",
-    "Winter Camp",
-    "Aur bhi kuch kuch",
-    "Aur bhi bohot kuch",
-  ];
+  const [updates, setUpdates] = useState([]);
+  const fetchUpdates = async () => {
+    await getDocs(collection(firestore, "updates")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      newData.sort((a, b) => a.index - b.index);
+      setUpdates(newData);
+      console.log(updates, newData);
+    });
+  };
+
+  useEffect(() => {
+    fetchUpdates();
+  }, []);
 
   return (
     <Card
@@ -52,7 +62,7 @@ const UpdateCard = () => {
               sx={{ fontFamily: "DM Sans", fontSize: "1.2rem", py: 1.3 }}
               key={index}
             >
-              - {update}
+              - {update.text}
             </Box>
           </motion.div>
         ))}
