@@ -1,12 +1,4 @@
-import {
-  Box,
-  Divider,
-  Grid,
-  List,
-  ListItem,
-  ListItemButton,
-  Stack,
-} from "@mui/material";
+import { Box, Divider, Grid, List, ListItemButton, Stack } from "@mui/material";
 import React from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import FooterLogo from "./FooterLogo";
@@ -17,19 +9,17 @@ const Footer = () => {
   const isPhone = false;
 
   return (
-    <footer
-      style={{
-        backgroundColor: "black",
-        color: "gray",
-        fontSize: "1.2rem",
-        paddingTop: 30,
-        fontFamily: "DM Sans",
-      }}
-    >
-      <Grid container direction={"row"} justifyContent={"space-around"}>
-        <Grid item lg={3} xs={12}>
+    <footer style={{ backgroundColor: "black", color: "white" }}>
+      <Grid
+        container
+        direction={"column"}
+        alignItems="center"
+        justifyContent={"space-around"}
+      >
+        <Grid item>
           <FooterLogo />
         </Grid>
+<<<<<<< HEAD
         <Grid item lg={1} xs={12} justifySelf={"center"}>
           <ListItem
             sx={{ fontSize: "1.6rem", fontWeight: "bold", color: "white" }}
@@ -55,7 +45,7 @@ const Footer = () => {
           <ListItem>Events</ListItem>
           <ListItem>Gallery</ListItem>
           <ListItem>Contact</ListItem>
-          <ListItem>Alumini</ListItem>
+          <ListItem>Alumni</ListItem>
           <ListItem>Articles</ListItem>
         </Grid>
         <Grid item lg={2} xs={12}>
@@ -91,15 +81,19 @@ const Footer = () => {
           </MapContainer>
         </Grid>
         {/* <Grid item>
+=======
+        <Grid item>
+          <Stack>
+>>>>>>> parent of 3d1add0 (redesigned footer)
             <Box>
-              <List>
+              <List component="nav" aria-aria-label="main mailbox folders">
                 NSS Svnit Surat
                 <ListItemButton>About us</ListItemButton>
                 <ListItemButton>Meet the team</ListItemButton>
                 <ListItemButton>Contact US </ListItemButton>
               </List>
             </Box>
-</Grid>
+
             <Box>
               <List component="nav" aria-aria-label="main mailbox folders">
                 COMPANY
@@ -109,6 +103,26 @@ const Footer = () => {
                 <ListItemButton>Shop</ListItemButton>
               </List>
             </Box>
+
+            {/* <p
+          style={{ textAlign: "center", fontSize: "1.5rem", fontWeight: "200" }}
+        >
+          Made with 💞, by{" "} */}
+            {/* <a
+            target="blank"
+            href="https://barik.super.site"
+            style={{
+              textDecoration: "none",
+              fontFamily: "Arvo",
+              fontWeight: "600",
+              fontSize: "1.8rem",
+              color: "black",
+            }}
+          >
+            barik.
+          </a> */}
+            {/* </p> */}
+
             <Box>
               <List component="nav" aria-aria-label="main mailbox folders">
                 CONTACT
@@ -118,6 +132,8 @@ const Footer = () => {
                 <ListItemButton>Email</ListItemButton>
               </List>
             </Box>
+          </Stack>
+        </Grid>
         <Grid item>
           <div>
             <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
@@ -131,7 +147,8 @@ const Footer = () => {
                 </Popup>
               </Marker>
             </MapContainer>
-          </div> */}
+          </div>
+        </Grid>
       </Grid>
     </footer>
   );

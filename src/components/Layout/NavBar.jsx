@@ -79,9 +79,9 @@ export default function NavBar() {
               <NavButton to="/about">About</NavButton>
               <NavButton to="/events">Events</NavButton>
               <NavButton to="/gallery">Gallery</NavButton>
+              <NavButton to="/alumni">Alumni</NavButton>
               <NavButton to="/contact">Contact</NavButton>
-              <NavButton to="/alumini">alumini</NavButton>
-              <NavButton to="/articles">Articles</NavButton>
+              <NavButton to="/admin">Admin</NavButton>
             </Box>
           )}
         </Toolbar>

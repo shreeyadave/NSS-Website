@@ -47,6 +47,9 @@ function a11yProps(index) {
 export default function DashBoard() {
   const [value, setValue] = React.useState(0);
 
+  const profilePic = localStorage.getItem("profilePic");
+  const profileName = localStorage.getItem("name");
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -61,9 +64,19 @@ export default function DashBoard() {
     >
       <Stack alignItems={"center"} gap={2} sx={{ pt: 2 }}>
         <Stack alignItems={"center"}>
-          <Avatar>P</Avatar>
-          <Box sx={{ fontFamily: "DM Sans", fontSize: "1.2rem", py: 2 }}>
-            Pragnesh Barik
+          <Avatar
+            src={profilePic}
+            sx={{ height: "80px", width: "80px" }}
+          ></Avatar>
+          <Box
+            sx={{
+              fontFamily: "Roboto",
+              fontSize: "1.1rem",
+              py: 2,
+              textAlign: "CENTER",
+            }}
+          >
+            {profileName}
           </Box>
         </Stack>
         <Tabs
