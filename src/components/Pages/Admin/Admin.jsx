@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import { Grid } from "@mui/material";
 import { getDoc, collection, doc } from "@firebase/firestore";
-import { auth, firestore } from "../../../firebase";
+import { auth, firestore, firestore } from "../../../firebase";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "@firebase/auth";
 import { Button } from "@mui/material";
 import DashBoard from "./DashBoard";
-import SignIn from "./Register";
+// import SignIn from "./Register";
 
 export default function Admin() {
   const [logged, setLogged] = useState(false);
