@@ -17,7 +17,7 @@ export default function HeadingSection() {
     </Typography>
   </Grid>
   <Grid item xs={6} sm={6} md={6}>
-    <img src="src/assets/bg.jpg" alt="Right Content" height="300px" />
+    <img src="src/assets/bg.jpg" alt="Right Content" height="310px" />
   </Grid>
 </Grid>
   )
