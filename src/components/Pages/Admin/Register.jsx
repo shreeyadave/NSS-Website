@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Google } from "@mui/icons-material";
+import { firestore } from "../../../firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 function Copyright(props) {
   return (
@@ -23,12 +25,15 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      {"Facing problems ?"} <br /> {"Contact "}
+      <Link
+        color="inherit"
+        href="mailto://barikpragnesh@gmail.com"
+        target="blank"
+      >
+        Pragnesh
+      </Link>
+      {" for help."}
     </Typography>
   );
 }
@@ -38,13 +43,17 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn(props) {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    // console.log("sdf");
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    const formData = {
+      access: false,
+      name: data.get("name"),
+      post: data.get("post"),
+    };
+    await setDoc(doc(firestore, "executives", data.get("email")), formData);
   };
 
   return (
@@ -63,7 +72,7 @@ export default function SignIn(props) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Apply for NSS Executive
           </Typography>
           <Box
             component="form"
@@ -71,6 +80,16 @@ export default function SignIn(props) {
             noValidate
             sx={{ mt: 1 }}
           >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              autoComplete="email"
+              autoFocus
+            />
             <TextField
               margin="normal"
               required
@@ -85,18 +104,13 @@ export default function SignIn(props) {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name="post"
+              label="Post"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <Button
               type="submit"
+              onSubmit={handleSubmit}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -104,7 +118,7 @@ export default function SignIn(props) {
               Apply
             </Button>
             <Button
-              type="submit"
+              //   type="submit"
               fullWidth
               onClick={props.handleSignIn}
               sx={{ boxShadow: 1, color: "gray" }}
@@ -112,18 +126,6 @@ export default function SignIn(props) {
               <Google sx={{ mr: "8px" }} />
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
