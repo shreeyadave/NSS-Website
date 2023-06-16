@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import {
+  Box,
   Button,
   FormControl,
   InputLabel,
+  ListItem,
   MenuItem,
   Select,
 } from "@mui/material";
+import { FullscreenTwoTone } from "@mui/icons-material";
+import { storage } from "../../../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 
 export default function ImageUpload() {
   const folders = ["Camp 1", "Camp 2", "Camp 3"];
-  const [folder, setFolder] = useState("");
+  const [folder, setFolder] = useState("default");
   const [files, setFiles] = useState([]);
+  // function to upload images to firebase storage
 
   const handleChange = (event) => {
+    console.log(event.target.value);
     setFolder(event.target.value);
   };
 
@@ -28,25 +35,38 @@ export default function ImageUpload() {
     event.preventDefault();
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     // Perform upload logic here using the 'files' state variable
+
+    Array.from(files).map((file) => {
+      const storageRef = ref(storage, `/images/${folder}/${file.name}`);
+      uploadBytesResumable(storageRef, file).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((url) => {
+          console.log(url);
+        });
+      });
+    });
     console.log(files);
   };
 
   return (
     <div>
-      <div
+      <Box
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        style={{
+        sx={{
           border: "1px dashed black",
-          padding: "20px",
+          py: "20",
+          // textAlign: "center",
           marginBottom: "20px",
         }}
       >
         Drag and drop images here
+        {Array.from(files).map((file, id) => (
+          <ListItem key={id}>{file.name}</ListItem>
+        ))}
         {/* {files[0].name ? files[0].name : "nine"} */}
-      </div>
+      </Box>
 
       <FormControl variant="filled" sx={{ m: 1, width: 240 }}>
         <InputLabel id="demo-simple-select-filled-label">Folders</InputLabel>
@@ -57,15 +77,14 @@ export default function ImageUpload() {
           label="folders"
           onChange={handleChange}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {folders.map((folder) => (
-            <MenuItem key={folder}>{folder}</MenuItem>
+            <MenuItem key={folder} value={folder}>
+              {folder}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
-      <Button onClick={handleUpload}>Make New Folder</Button>
+      <Button onClick={handleUpload}>upload</Button>
     </div>
   );
 }
