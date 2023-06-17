@@ -16,9 +16,11 @@ import { collection, getDocs, setDoc, getDoc, doc } from "@firebase/firestore";
 import { firestore, storage } from "../../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
+import Compressor from "compressorjs";
 
 export default function ImageUpload() {
   const [foldersList, setFoldersList] = useState([]);
+  const [quality, setQuality] = useState(0.8);
   const [selectedFolder, setSelectedFolder] = useState();
   const [files, setFiles] = useState([]);
   const [isUploading, setIsUploading] = useState(false); // Track upload progress
@@ -87,29 +89,42 @@ export default function ImageUpload() {
         setProgress(0); // Reset progress
 
         const uploadPromises = Array.from(files).map((file) => {
-          const storageRef = ref(
-            storage,
-            `/images/${selectedFolder.id}/${file.name}`
-          );
+          return new Promise((resolve, reject) => {
+            new Compressor(file, {
+              quality: 0.5, // Adjust the image quality as needed
+              success(result) {
+                const storageRef = ref(
+                  storage,
+                  `/images/${selectedFolder.name}/${result.name}`
+                );
 
-          const uploadTask = uploadBytesResumable(storageRef, file);
-          uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-              // Track progress
-              const progress = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-              );
-              setProgress(progress);
-            },
-            (error) => {
-              console.log("Error uploading file:", error);
-            }
-          );
+                const uploadTask = uploadBytesResumable(storageRef, result);
+                uploadTask.on(
+                  "state_changed",
+                  (snapshot) => {
+                    // Track progress
+                    const progress = Math.round(
+                      (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    );
+                    setProgress(progress);
+                  },
+                  (error) => {
+                    console.log("Error uploading file:", error);
+                    reject(error);
+                  }
+                );
 
-          return uploadTask.then((snapshot) => {
-            return getDownloadURL(snapshot.ref).then((url) => {
-              imageLinks.push(url); // Store the download URL
+                uploadTask.then((snapshot) => {
+                  getDownloadURL(snapshot.ref).then((url) => {
+                    imageLinks.push(url); // Store the download URL
+                    resolve();
+                  });
+                });
+              },
+              error(error) {
+                console.log("Error compressing file:", error);
+                reject(error);
+              },
             });
           });
         });
@@ -178,9 +193,7 @@ export default function ImageUpload() {
           <Box display="flex" alignItems="center" justifyContent="center">
             <Box width="100%" minWidth={400} mt={4}>
               <Box mb={2}>Uploading Files...</Box>
-              <Box mb={2}>
-                Progress: {progress}% ({progress}/{files.length})
-              </Box>
+              <Box mb={2}>Progress: {progress}%</Box>
               <Box sx={{ width: "100%" }}>
                 <LinearProgress variant="determinate" value={progress} />
               </Box>

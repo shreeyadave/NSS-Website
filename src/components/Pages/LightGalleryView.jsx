@@ -2,8 +2,6 @@ import React from "react";
 
 import LightGallery from "lightgallery/react";
 import lgZoom from "lightgallery/plugins/zoom";
-import lgVideo from "lightgallery/plugins/video";
-import Masonry from "@mui/lab/Masonry";
 
 export default function LightGalleryView(props) {
   console.log(props.images);
