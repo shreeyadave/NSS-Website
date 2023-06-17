@@ -56,8 +56,6 @@ export default function Gallery() {
   }
 
   const [foldersList, setFoldersList] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState(null);
-  const [files, setFiles] = useState([]);
 
   useEffect(() => {
     fetchFolders();
@@ -103,8 +101,8 @@ export default function Gallery() {
           aria-label="Vertical tabs example"
           sx={{
             borderRight: 0,
-            width: "100px",
-            borderColor: "divider",
+            minWidth: "100px",
+            // borderColor: "divider",
             fontFamily: "DM Sans",
           }}
         >

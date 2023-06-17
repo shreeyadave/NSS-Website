@@ -39,7 +39,7 @@ export default function NavBar() {
         position="sticky"
         sx={{ backdropFilter: "blur(10px)", px: 8 }}
         color="transparent"
-        elevation={0}
+        elevation={5}
       >
         <Toolbar>
           <Stack component="div" sx={{ flexGrow: 1 }}>
