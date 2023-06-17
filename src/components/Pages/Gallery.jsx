@@ -101,7 +101,7 @@ export default function Gallery() {
           aria-label="Vertical tabs example"
           sx={{
             borderRight: 0,
-            minWidth: "100px",
+            minWidth: "150px",
             // borderColor: "divider",
             fontFamily: "DM Sans",
           }}

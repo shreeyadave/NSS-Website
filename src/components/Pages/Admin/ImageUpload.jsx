@@ -12,7 +12,6 @@ import {
   Select,
   Stack,
 } from "@mui/material";
-import { FullscreenTwoTone } from "@mui/icons-material";
 import { collection, getDocs, setDoc, getDoc, doc } from "@firebase/firestore";
 import { firestore, storage } from "../../../firebase";
 import { v4 as uuidv4 } from "uuid";
