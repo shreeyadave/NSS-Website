@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 import { Height, WidthFull } from "@mui/icons-material";
-import { bg } from "./../../../assets/bg.jpg";
+import bg from "./../../../assets/bg.jpg";
 
 export default function HeadingSection() {
   return (
