@@ -9,6 +9,10 @@ import GalleryView from "./Home/GalleryView";
 import { Divider, Stack } from "@mui/material";
 import LightGalleryView from "./LightGalleryView";
 import PageHeader from "../UI/PageHeader";
+import { useEffect } from "react";
+import { getDocs, collection, doc } from "@firebase/firestore";
+import { firestore } from "../../firebase";
+import { useState } from "react";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,6 +55,24 @@ export default function Gallery() {
     categories.push("EVENT " + (i + 1));
   }
 
+  const [foldersList, setFoldersList] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    fetchFolders();
+  }, []);
+
+  const fetchFolders = async () => {
+    const querySnapshot = await getDocs(collection(firestore, "images"));
+    const newData = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    setFoldersList(newData);
+    console.log(newData);
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -79,20 +101,34 @@ export default function Gallery() {
           value={value}
           onChange={handleChange}
           aria-label="Vertical tabs example"
-          sx={{ borderRight: 1, borderColor: "divider", fontFamily: "DM Sans" }}
+          sx={{
+            borderRight: 0,
+            width: "100px",
+            borderColor: "divider",
+            fontFamily: "DM Sans",
+          }}
         >
-          {categories.map((items, i) => {
+          {foldersList.map((items, i) => {
             return (
               <Tab
                 key={i}
                 sx={{ fontFamily: "DM Sans" }}
-                label={items}
+                label={items.name}
                 {...a11yProps(i)}
               />
             );
           })}
         </Tabs>
-        <TabPanel value={value} index={0}>
+
+        {foldersList.map((folder, i) => {
+          return (
+            <TabPanel value={value} key={i} index={i}>
+              <LightGalleryView images={folder.image_links} />
+            </TabPanel>
+          );
+        })}
+
+        {/* <TabPanel value={value} index={0}>
           <Stack direction={"row"}>
             <GalleryView />
             <GalleryView />
@@ -115,7 +151,7 @@ export default function Gallery() {
         </TabPanel>
         <TabPanel value={value} index={6}>
           Item Seven
-        </TabPanel>
+        </TabPanel> */}
       </Stack>
     </Layout>
   );
