@@ -10,12 +10,12 @@ export default function HeroSection() {
   return (
     <div
       style={{
-        paddingTop: 64,
+        marginTop: "-64px",
         backgroundImage: `url(${bg})`,
         height: "100vh",
-        maxWidth: "100vw",
-        overflow: "hidden",
-        marginTop: isPhone ? -56 : -64,
+        // maxWidth: "100vw",
+        // overflow: "hidden",
+        // marginTop: isPhone ? -56 : -64,
       }}
     >
       <Grid

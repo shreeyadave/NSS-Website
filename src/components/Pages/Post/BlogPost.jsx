@@ -12,7 +12,7 @@ export default function BlogPost(props) {
   const date = `${day}/${month}/${year}`;
 
   return (
-    <Stack alignItems={"center"} sx={{ px: 5, width: "70%" }}>
+    <Stack alignItems={"center"} sx={{ px: 5, width: "100%" }}>
       <Stack sx={{ width: "100%" }}>
         <Box
           sx={{
