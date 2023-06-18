@@ -17,6 +17,8 @@ import { firestore, storage } from "../../../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import Compressor from "compressorjs";
+import { analytics } from "../../../firebase";
+import { logEvent } from "@firebase/analytics";
 
 export default function ImageUpload() {
   const [foldersList, setFoldersList] = useState([]);
@@ -37,18 +39,15 @@ export default function ImageUpload() {
       id: doc.id,
     }));
     setFoldersList(newData);
-    console.log(newData);
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setSelectedFolder(event.target.value);
   };
 
   const handleDrop = (event) => {
     event.preventDefault();
     const uploadedFiles = event.dataTransfer.files;
-    console.log(uploadedFiles);
     setFiles(uploadedFiles);
   };
 
@@ -60,10 +59,6 @@ export default function ImageUpload() {
     const newFolder = prompt("Enter new folder name");
     if (newFolder) {
       const uuid = uuidv4();
-      console.log(uuid);
-      console.log(newFolder);
-      console.log(foldersList);
-      console.log(foldersList.find((folder) => folder.name === newFolder));
 
       if (foldersList.find((folder) => folder.name === newFolder)) {
         alert("Folder already exists");
@@ -93,6 +88,7 @@ export default function ImageUpload() {
             new Compressor(file, {
               quality: 0.5, // Adjust the image quality as needed
               success(result) {
+                logEvent(analytics, "image_compress_success");
                 const storageRef = ref(
                   storage,
                   `/images/${selectedFolder.name}/${result.name}`
@@ -109,7 +105,7 @@ export default function ImageUpload() {
                     setProgress(progress);
                   },
                   (error) => {
-                    console.log("Error uploading file:", error);
+                    logEvent(analytics, "image_upload_error");
                     reject(error);
                   }
                 );
@@ -122,7 +118,7 @@ export default function ImageUpload() {
                 });
               },
               error(error) {
-                console.log("Error compressing file:", error);
+                logEvent(analytics, "image_upload_error");
                 reject(error);
               },
             });
@@ -137,10 +133,10 @@ export default function ImageUpload() {
           name: selectedFolder.name,
         });
 
-        console.log("Upload complete");
+        logEvent(analytics, "image_upload_success");
       }
     } catch (error) {
-      console.log("Error uploading files:", error);
+      logEvent(analytics, "image_upload_error");
     } finally {
       setIsUploading(false);
       // Upload completed or failed
