@@ -152,13 +152,17 @@ function SortableList() {
         value={newItemText}
         onChange={handleNewItemChange}
         fullWidth
+        size="small"
+        onKeyDown={(event) => {
+          event.key === "Enter" && handleAddItem;
+        }}
         margin="normal"
         variant="outlined"
       />
 
-      <Button variant="contained" onClick={handleAddItem}>
+      {/* <Button variant="contained" onClick={handleAddItem}>
         Add Item
-      </Button>
+      </Button> */}
     </List>
   );
 }

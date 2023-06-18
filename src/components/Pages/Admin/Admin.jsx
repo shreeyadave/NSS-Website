@@ -7,6 +7,8 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from "@firebase/auth";
 import { Button } from "@mui/material";
 import DashBoard from "./DashBoard";
 import SignIn from "./Register";
+import { analytics } from "../../../firebase";
+import { logEvent } from "@firebase/analytics";
 
 export default function Admin() {
   const [logged, setLogged] = useState(false);
@@ -35,6 +37,8 @@ export default function Admin() {
         const profilePic = result.user.photoURL;
 
         grantAccess(email);
+
+        logEvent(analytics, "executive_login", { email: email });
 
         // localStorage.setItem("loggedIn", true);
         localStorage.setItem("name", name);

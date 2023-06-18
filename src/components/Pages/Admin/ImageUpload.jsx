@@ -142,7 +142,8 @@ export default function ImageUpload() {
     } catch (error) {
       console.log("Error uploading files:", error);
     } finally {
-      setIsUploading(false); // Upload completed or failed
+      setIsUploading(false);
+      // Upload completed or failed
       setProgress(0); // Reset progress
     }
   };

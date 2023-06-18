@@ -15,7 +15,9 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Google } from "@mui/icons-material";
 import { firestore } from "../../../firebase";
-import { setDoc, doc } from "firebase/firestore";
+import { analytics } from "../../../firebase";
+import { setDoc, doc } from "@firebase/firestore";
+import { logEvent } from "@firebase/analytics";
 
 function Copyright(props) {
   return (
@@ -53,6 +55,8 @@ export default function SignIn(props) {
       name: data.get("name"),
       post: data.get("post"),
     };
+    logEvent(analytics, "executive_application", formData);
+
     await setDoc(doc(firestore, "executives", data.get("email")), formData);
   };
 

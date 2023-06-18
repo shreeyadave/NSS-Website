@@ -8,7 +8,7 @@ export default function Updates() {
   return (
     <Box sx={{ fontFamily: "DM Sans" }}>
       <SortableList />
-      <TextField variant="filled" fullWidth label="New Update" />
+      {/* <TextField variant="filled" fullWidth label="New Update" /> */}
     </Box>
   );
 }
