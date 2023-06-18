@@ -1,7 +1,5 @@
 import "./App.css";
 import GalleryView from "./components/Pages/Home/GalleryView";
-import "lightgallery/css/lg-thumbnail.css";
-
 import Events from "./components/Pages/Events";
 import Gallery from "./components/Pages/Gallery";
 import Home from "./components/Pages/Home";
@@ -10,6 +8,7 @@ import Post from "./components/Pages/Post";
 import NewPost from "./components/Pages/NewPost";
 import Admin from "./components/Pages/Admin/Admin";
 import Alumni from "./components/Pages/Alumni/Alumni";
+import AlumniBatchPage from "./components/Pages/Alumni/AlumniBatchPage";
 
 function App() {
   return (
@@ -19,7 +18,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/alumni" element={<Alumni />} />
+        <Route exact path="/alumni" element={<Alumni />} />
+        <Route path="/alumni/:year" element={<AlumniBatchPage />} />
         <Route path="/events/:id" element={<Post />} />
         <Route path="/" element={<Home />} />
       </Routes>
