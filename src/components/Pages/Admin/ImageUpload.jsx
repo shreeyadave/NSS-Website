@@ -19,7 +19,6 @@ import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import Compressor from "compressorjs";
 import { analytics } from "../../../firebase";
 import { logEvent } from "@firebase/analytics";
-
 export default function ImageUpload() {
   const [foldersList, setFoldersList] = useState([]);
   const [quality, setQuality] = useState(0.8);

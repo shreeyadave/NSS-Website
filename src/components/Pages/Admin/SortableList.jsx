@@ -148,13 +148,13 @@ function SortableList() {
       </Container>
 
       <TextField
-        label="New Item"
+        label="New Update"
         value={newItemText}
         onChange={handleNewItemChange}
         fullWidth
         size="small"
         onKeyDown={(event) => {
-          event.key === "Enter" && handleAddItem;
+        if(event.key==="Enter") {handleAddItem()};
         }}
         margin="normal"
         variant="outlined"
