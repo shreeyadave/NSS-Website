@@ -1,7 +1,14 @@
 import React from "react";
-import { Typography, Grid, Box, Button, Grow, useScrollTrigger } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Box,
+  Button,
+  Grow,
+  useScrollTrigger,
+} from "@mui/material";
 import AlumniCard from "./AlumniCard";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // Component for displaying a batch of alumni
 const AlumniBatch = ({ year, alumniList }) => {
@@ -20,28 +27,28 @@ const AlumniBatch = ({ year, alumniList }) => {
 
   return (
     <>
-      <div>
+      <div style={{ fontFamily: "DM Sans" }}>
         <Box
           sx={{
-            marginTop: "45px",
-            marginLeft: "60px",
-            backgroundColor: "#e0e0e0",
-            padding: "10px",
-            borderRadius: "8px",
+            my: 2,
+            px: 8,
+            py: 4,
+            fontSize: "3rem",
+            backgroundColor: "BLACK",
             display: "inline-block",
-            boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)",
-            justifyContent: "center",
-            alignContent: "center",
-            transition: "transform 0.5s ease-in-out, opacity 0.5s ease-in-out",
-            transform: animateHeading ? "translateY(0)" : "translateY(20px)",
-            opacity: animateHeading ? 1 : 0,
+            fontFamily: "DM Sans",
+            color: "grey",
           }}
         >
-          <Typography variant="h4">
-            Batch of {year}
-          </Typography>
+          Team of{" "}
+          <span style={{ fontWeight: 400, color: "white" }}>{year}</span>
         </Box>
-        <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: "20px", marginLeft: "60px", marginBottom: "60px" }}>
+        <Grid
+          container
+          spacing={1}
+          rowSpacing={4}
+          sx={{ marginTop: "20px", marginLeft: "60px", marginBottom: "60px" }}
+        >
           {displayedAlumni.map((alumni, index) => (
             <Grow
               key={alumni.name}
@@ -65,7 +72,12 @@ const AlumniBatch = ({ year, alumniList }) => {
             to={`/alumni/${year}`}
             variant="outlined"
             color="inherit"
-            sx={{ bottom: '20px', left: '1334px' }}
+            sx={{
+              bottom: "20px",
+              borderRadius: 0,
+              fontFamily: "DM Sans",
+              left: "1334px",
+            }}
           >
             See More
           </Button>
