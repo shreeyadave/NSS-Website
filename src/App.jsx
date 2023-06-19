@@ -9,6 +9,7 @@ import NewPost from "./components/Pages/NewPost";
 import Admin from "./components/Pages/Admin/Admin";
 import Alumni from "./components/Pages/Alumni/Alumni";
 import AlumniBatchPage from "./components/Pages/Alumni/AlumniBatchPage";
+import Contact from './components/Pages/Contact'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/events" element={<Events />} />
         <Route exact path="/alumni" element={<Alumni />} />
+        <Route path='/contact' element={<Contact/>}/>
         <Route path="/alumni/:year" element={<AlumniBatchPage />} />
         <Route path="/events/:id" element={<Post />} />
         <Route path="/" element={<Home />} />
