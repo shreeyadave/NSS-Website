@@ -1,36 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Container, Draggable } from "react-smooth-dnd";
-import { arrayMoveImmutable } from "array-move";
-import { firestore } from "../../../firebase";
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  ListItemSecondaryAction,
-  IconButton,
-  TextField,
-  Button,
-} from "@mui/material";
+import React, {useEffect, useState} from "react";
+import {Container, Draggable} from "react-smooth-dnd";
+import {arrayMoveImmutable} from "array-move";
+import {firestore} from "../../../firebase";
+import {List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, TextField,} from "@mui/material";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {
-  doc,
-  deleteDoc,
-  collection,
-  getDocs,
-  updateDoc,
-  addDoc,
-  query,
-} from "firebase/firestore"; // Import Firestore related functions
-const fetchPosts = async () => {
-  await getDocs(collection(firestore, "updates")).then((querySnapshot) => {
-    const newData = querySnapshot.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
-  });
-};
+import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc,} from "firebase/firestore"; // Import Firestore related functions
+
 function SortableList() {
   const [items, setItems] = useState([]);
   const [newItemText, setNewItemText] = useState("");

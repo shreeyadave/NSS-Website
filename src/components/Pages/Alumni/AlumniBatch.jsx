@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Component for displaying a batch of alumni
 const AlumniBatch = ({ year, alumniList }) => {
-  const displayedAlumni = alumniList.slice(0, 4); // Get the first four alumni from the list
+  const displayedAlumni = alumniList.slice(0, 6); // Get the first six alumni from the list
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 100,
@@ -19,34 +19,46 @@ const AlumniBatch = ({ year, alumniList }) => {
   }, [trigger]);
 
   let headingText;
+  let headingColor;
   if (year === 2000) {
-    headingText = "Faculty Advisor";
+    headingText = "Faculty";
+    headingColor = "grey";
   } else {
-    headingText = `Batch of ${year}`;
+    headingText = `Team of`;
+    headingColor = "grey";
+  }
+
+  let coordinatorText;
+  let coordinatorColor;
+  if (year === 2000) {
+    coordinatorText = "Advisor";
+    coordinatorColor = "white";
+  } else {
+    coordinatorText = year;
+    coordinatorColor = "white";
   }
 
   return (
     <>
-      <div>
+      <div style={{ fontFamily: "DM Sans" }}>
         <Box
           sx={{
-            marginTop: "45px",
-            marginLeft: "60px",
-            backgroundColor: "#e0e0e0",
-            padding: "10px",
-            borderRadius: "8px",
+            my: 2,
+            px: 8,
+            py: 4,
+            fontSize: "3rem",
+            backgroundColor: "black",
             display: "inline-block",
-            boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)",
-            transition: "transform 0.5s ease-in-out, opacity 0.5s ease-in-out",
-            transform: animateHeading ? "translateY(0)" : "translateY(20px)",
-            opacity: animateHeading ? 1 : 0,
+            fontFamily: "DM Sans",
+            color: headingColor,
           }}
         >
-          <Typography variant="h4">
-            {headingText}
-          </Typography>
+          {headingText}{" "}
+          <span style={{ fontWeight: 400, color: coordinatorColor }}>
+            {coordinatorText}
+          </span>
         </Box>
-        <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: "20px", marginLeft: "60px", marginBottom: "60px" }}>
+        <Grid container spacing={0.5} rowSpacing={0.25} sx={{ marginTop: "20px", marginLeft: "40px", marginBottom: "60px" }}>
           {displayedAlumni.map((alumni, index) => (
             <Grow
               key={alumni.name}
@@ -54,7 +66,7 @@ const AlumniBatch = ({ year, alumniList }) => {
               timeout={1000 + index * 300}
               style={{ transformOrigin: "150px 168px 0" }}
             >
-              <Grid item xs={4} sm={6} md={2.8}>
+              <Grid item xs={4} sm={4} md={2} lg={2} xl={2}>
                 <Box>
                   <AlumniCard {...alumni} />
                 </Box>
@@ -63,14 +75,14 @@ const AlumniBatch = ({ year, alumniList }) => {
           ))}
         </Grid>
       </div>
-      {alumniList.length > 4 && (
+      {alumniList.length > 6 && (
         <Grow in={trigger} timeout={3000}>
           <Button
             component={Link}
             to={`/alumni/${year}`}
             variant="outlined"
             color="inherit"
-            sx={{ bottom: '20px', left: '1265px' }}
+            sx={{ bottom: '20px', left: '1414px', borderRadius: 0, fontFamily: "DM Sans", }}
           >
             See More
           </Button>

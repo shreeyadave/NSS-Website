@@ -24,7 +24,7 @@ const AlumniCard = ({ image, name, position, linkedin, github, gmail }) => {
   return (
     <Card
       sx={{
-        width: '230px',
+        width: '200px',
         borderRadius: '16px',
         transition: 'transform 0.3s ease',
         '&:hover': {
