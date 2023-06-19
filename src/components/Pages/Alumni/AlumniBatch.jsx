@@ -70,7 +70,7 @@ const AlumniBatch = ({ year, alumniList }) => {
             to={`/alumni/${year}`}
             variant="outlined"
             color="inherit"
-            sx={{ bottom: '20px', left: '1334px' }}
+            sx={{ bottom: '20px', left: '1265px' }}
           >
             See More
           </Button>
