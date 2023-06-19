@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Link, Box } from '@mui/material';
-import { LinkedIn, GitHub } from '@mui/icons-material';
+import { LinkedIn, GitHub, Email } from '@mui/icons-material';
 
 // Card component for displaying alumni information
-const AlumniCard = ({ image, name, position, linkedin, github }) => {
+const AlumniCard = ({ image, name, position, linkedin, github, gmail }) => {
   const [isHovered, setIsHovered] = useState(false);
   const hasLinkedIn = !!linkedin; // Check if the LinkedIn link is provided
   const hasGitHub = !!github; // Check if the GitHub link is provided
+  const hasGmail = !!gmail; // Check if the Gmail link is provided
 
   const handleHover = () => {
     setIsHovered(true);
@@ -14,6 +15,10 @@ const AlumniCard = ({ image, name, position, linkedin, github }) => {
 
   const handleLeave = () => {
     setIsHovered(false);
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${gmail}`;
   };
 
   return (
@@ -85,6 +90,7 @@ const AlumniCard = ({ image, name, position, linkedin, github }) => {
               color="inherit"
               sx={{
                 marginTop:'10px',
+                marginRight: '10px',
                 transition: 'color 0.3s ease',
                 '&:hover': {
                   color: '#6f42c1', // Change to desired GitHub color
@@ -92,6 +98,25 @@ const AlumniCard = ({ image, name, position, linkedin, github }) => {
               }}
             >
               <GitHub fontSize="large" sx={{ fontSize: '38px' }} />
+            </Link>
+          )}
+          {hasGmail && (
+            <Link
+              href={`mailto:${gmail}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              color="inherit"
+              onClick={handleEmailClick}
+              sx={{
+                marginTop:'10px',
+                marginLeft: '3px',
+                transition: 'color 0.3s ease',
+                '&:hover': {
+                  color: '#D44638', // Change to desired Gmail color
+                },
+              }}
+            >
+              <Email fontSize="large" sx={{ fontSize: '38px' }} />
             </Link>
           )}
         </Box>

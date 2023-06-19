@@ -1,3 +1,14 @@
+const sir = [
+  {
+    image: '',
+    name: 'Dr. Bade Mukund',
+    position: 'Faculty Advisor',
+    linkedin: 'https://www.linkedin.com/in/johndoe',
+    github: 'https://github.com/johndoe',
+    gmail: 'u21ee081@eed.svnit.ac.in',
+  }
+]
+
 const alumni2019 = [
     {
       image: 'src/assets/bg.jpg',
@@ -76,4 +87,4 @@ const alumni2019 = [
     // Add more alumni objects as needed
   ];
 
-export { alumni2019, alumni2018 };
+export { alumni2019, alumni2018, sir };

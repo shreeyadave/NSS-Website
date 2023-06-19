@@ -18,6 +18,13 @@ const AlumniBatch = ({ year, alumniList }) => {
     }
   }, [trigger]);
 
+  let headingText;
+  if (year === 2000) {
+    headingText = "Faculty Advisor";
+  } else {
+    headingText = `Batch of ${year}`;
+  }
+
   return (
     <>
       <div>
@@ -30,15 +37,13 @@ const AlumniBatch = ({ year, alumniList }) => {
             borderRadius: "8px",
             display: "inline-block",
             boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)",
-            justifyContent: "center",
-            alignContent: "center",
             transition: "transform 0.5s ease-in-out, opacity 0.5s ease-in-out",
             transform: animateHeading ? "translateY(0)" : "translateY(20px)",
             opacity: animateHeading ? 1 : 0,
           }}
         >
           <Typography variant="h4">
-            Batch of {year}
+            {headingText}
           </Typography>
         </Box>
         <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: "20px", marginLeft: "60px", marginBottom: "60px" }}>
