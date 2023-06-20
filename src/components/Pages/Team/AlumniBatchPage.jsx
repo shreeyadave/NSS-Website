@@ -8,13 +8,8 @@ import Layout from "../../Layout/Layout";
 const AlumniBatchPage = () => {
   const { year } = useParams();
   const alumniList = React.useMemo(() => {
-    if (year === "2019") {
-      return Data.Team2019;
-    } else if (year === "2018") {
-      return Data.Team2018;
-    }
-    // Add more conditions for other years if needed
-    return [];
+    const dataKey = `Team${year}`;
+    return Data[dataKey] || [];
   }, [year]);
 
   const [animateCards, setAnimateCards] = React.useState(false);
@@ -28,14 +23,14 @@ const AlumniBatchPage = () => {
     <Layout>
       <Button
         component={Link}
-        to="/alumni"
+        to="/team"
         color="inherit"
         size="large"
         style={{ position: "fixed", top: "100px", left: "20px", zIndex: 1000 }}
       >
         Back to Alumni
       </Button>
-
+      <div style={{ overflowX: 'hidden' }}>
       <Grid container justifyContent="center" alignItems="center">
       <Box
         sx={{
@@ -62,12 +57,12 @@ const AlumniBatchPage = () => {
       </Box>
       </Grid>
 
-      <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: '20px', marginLeft: '40px', marginBottom: '60px' }} alignItems={"center"} justifyContent={"center"}>
+      <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: '20px', marginLeft: '30px', marginBottom: '60px' }} alignItems={"center"} justifyContent={"center"}>
         {alumniList.map((alumni, index) => (
           <Grow
             key={alumni.name}
             in={animateCards}
-            timeout={1000 + index * 300}
+            timeout={1000 + index * 150}
             style={{ transformOrigin: "150px 168px 0" }}
           >
             <Grid item xs={4} sm={4} md={2} lg={2} xl={2}>
@@ -78,6 +73,7 @@ const AlumniBatchPage = () => {
           </Grow>
         ))}
       </Grid>
+      </div>
     </Layout>
   );
 };

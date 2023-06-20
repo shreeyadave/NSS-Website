@@ -27,6 +27,7 @@ const AlumniCard = ({ image, name, position, linkedin, github, gmail }) => {
         width: '200px',
         borderRadius: '16px',
         transition: 'transform 0.3s ease',
+        overflow: 'hidden',
         '&:hover': {
           transform: 'scale(1.05)',
         },

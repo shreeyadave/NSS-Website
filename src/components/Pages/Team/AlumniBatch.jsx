@@ -40,7 +40,7 @@ const AlumniBatch = ({ year, alumniList }) => {
 
   return (
     <>
-      <div style={{ fontFamily: "DM Sans" }}>
+      <div style={{ fontFamily: "DM Sans", overflowX: "hidden" }}>
         <Box
           sx={{
             my: 2,
@@ -58,7 +58,7 @@ const AlumniBatch = ({ year, alumniList }) => {
             {coordinatorText}
           </span>
         </Box>
-        <Grid container spacing={0.5} rowSpacing={0.25} sx={{ marginTop: "20px", marginLeft: "40px", marginBottom: "60px" }}>
+        <Grid container spacing={0.5} rowSpacing={0.25} sx={{ marginTop: "20px", marginLeft: "30px", marginBottom: "60px" }}>
           {displayedAlumni.map((alumni, index) => (
             <Grow
               key={alumni.name}
@@ -82,7 +82,7 @@ const AlumniBatch = ({ year, alumniList }) => {
             to={`/team/${year}`}
             variant="outlined"
             color="inherit"
-            sx={{ bottom: '20px', left: '1414px', borderRadius: 0, fontFamily: "DM Sans", }}>
+            sx={{ bottom: '20px', left: '1397px', borderRadius: 0, fontFamily: "DM Sans", }}>
             See More
           </Button>
         </Grow>

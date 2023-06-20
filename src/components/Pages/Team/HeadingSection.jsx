@@ -8,6 +8,7 @@ export default function HeadingSection() {
   });
 
   return (
+    <div style={{ overflowX: 'hidden' }}>
     <Grid container spacing={2} sx={{ marginTop: '45px', marginLeft: '60px', marginBottom: '60px' }}>
       <Grid item xs={6} sm={6} md={5}>
         <Slide direction="right" in={true} timeout={1000} mountOnEnter>
@@ -32,5 +33,6 @@ export default function HeadingSection() {
         </Slide>
       </Grid>
     </Grid>
+    </div>
   );
 }
