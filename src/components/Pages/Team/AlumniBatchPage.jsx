@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { Typography, Button, Grow, Grid, Box } from "@mui/material";
 import AlumniCard from "./AlumniCard";
 import { Link, useParams } from "react-router-dom";
-import * as Data from "./AlumniData";
+import * as Data from './TeamData';
 import Layout from "../../Layout/Layout";
 
 const AlumniBatchPage = () => {
   const { year } = useParams();
   const alumniList = React.useMemo(() => {
     if (year === "2019") {
-      return Data.alumni2019;
+      return Data.Team2019;
     } else if (year === "2018") {
-      return Data.alumni2018;
+      return Data.Team2018;
     }
     // Add more conditions for other years if needed
     return [];
@@ -26,6 +26,17 @@ const AlumniBatchPage = () => {
 
   return (
     <Layout>
+      <Button
+        component={Link}
+        to="/alumni"
+        color="inherit"
+        size="large"
+        style={{ position: "fixed", top: "100px", left: "20px", zIndex: 1000 }}
+      >
+        Back to Alumni
+      </Button>
+
+      <Grid container justifyContent="center" alignItems="center">
       <Box
         sx={{
           my: "30px",
@@ -44,19 +55,14 @@ const AlumniBatchPage = () => {
           opacity: animateCards ? 1 : 0,
         }}
       >
-        Team of{" "}
+           Team of{" "}
         <span style={{ color: "#fff" }}>
           {""} {year}
         </span>
       </Box>
+      </Grid>
 
-      <Grid
-        container
-        sx={{ pl: 10, pr: 6, py: 4 }}
-        rowSpacing={4}
-        alignItems={"center"}
-        justifyContent={"center"}
-      >
+      <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: '20px', marginLeft: '40px', marginBottom: '60px' }} alignItems={"center"} justifyContent={"center"}>
         {alumniList.map((alumni, index) => (
           <Grow
             key={alumni.name}
@@ -64,7 +70,7 @@ const AlumniBatchPage = () => {
             timeout={1000 + index * 300}
             style={{ transformOrigin: "150px 168px 0" }}
           >
-            <Grid item xs={6} sm={6} lg={3}>
+            <Grid item xs={4} sm={4} md={2} lg={2} xl={2}>
               <Box>
                 <AlumniCard {...alumni} />
               </Box>

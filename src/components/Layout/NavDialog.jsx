@@ -23,7 +23,7 @@ export default function NavDialog({ openDialog, handleCloseDialog }) {
             Events
           </Button>
           <Button color="inherit" onClick={handleCloseDialog}>
-            Volunteer
+            Team
           </Button>
           <Button color="inherit" onClick={handleCloseDialog}>
             Contacts

@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Post from "./components/Pages/Post";
 import NewPost from "./components/Pages/NewPost";
 import Admin from "./components/Pages/Admin/Admin";
-import Alumni from "./components/Pages/Alumni/Alumni";
-import AlumniBatchPage from "./components/Pages/Alumni/AlumniBatchPage";
+import Alumni from "./components/Pages/Team/Alumni";
+import AlumniBatchPage from "./components/Pages/Team/AlumniBatchPage";
 import Contact from './components/Pages/Contact'
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/events" element={<Events />} />
-        <Route exact path="/alumni" element={<Alumni />} />
+        <Route exact path="/team" element={<Alumni />} />
         <Route path='/contact' element={<Contact/>}/>
-        <Route path="/alumni/:year" element={<AlumniBatchPage />} />
+        <Route path="/team/:year" element={<AlumniBatchPage />} />
         <Route path="/events/:id" element={<Post />} />
         <Route path="/" element={<Home />} />
       </Routes>

@@ -17,12 +17,12 @@ export default function HeadingSection() {
         </Slide>
         <Slide direction="right" in={true} timeout={1300} mountOnEnter>
           <Typography variant="h1" fontSize={'100px'} gutterBottom>
-            Alumni
+            Team
           </Typography>
         </Slide>
         <Slide direction="right" in={true} timeout={1500} mountOnEnter>
           <Typography variant="subtitle2" gutterBottom>
-            Our alumni form an integral part of our community and have achieved great success in their respective fields. They are a testament to the quality of education and the skills they acquired during their time at our institution. Get to know some of our outstanding alumni from different batches below.
+          Unleash the power of change with NSS SVNIT's extraordinary team. Dedicated to making a delta change every day, we combine passion, expertise, and unwavering commitment. Join us on our journey to create a better tomorrow, one impactful step at a time. Together, let's make a lasting difference and inspire a wave of positive transformation.
           </Typography>
         </Slide>
       </Grid>
