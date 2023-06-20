@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { Typography, Button, Grow, Grid, Box } from "@mui/material";
 import AlumniCard from "./AlumniCard";
 import { Link, useParams } from "react-router-dom";
-import * as Data from "./AlumniData";
+import * as Data from '../../../../TeamData';
 import Layout from "../../Layout/Layout";
 
 const AlumniBatchPage = () => {
   const { year } = useParams();
   const alumniList = React.useMemo(() => {
     if (year === "2019") {
-      return Data.alumni2019;
+      return Data.Team2019;
     } else if (year === "2018") {
-      return Data.alumni2018;
+      return Data.Team2018;
     }
     // Add more conditions for other years if needed
     return [];

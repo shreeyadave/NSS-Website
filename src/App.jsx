@@ -19,8 +19,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/newpost" element={<NewPost />} />
         <Route path="/events" element={<Events />} />
-        <Route exact path="/alumni" element={<Alumni />} />
-        <Route path="/alumni/:year" element={<AlumniBatchPage />} />
+        <Route exact path="/team" element={<Alumni />} />
+        <Route path="/team/:year" element={<AlumniBatchPage />} />
         <Route path='/contact' element={<Contact/>}/>
         <Route path="/events/:id" element={<Post />} />
         <Route path="/" element={<Home />} />

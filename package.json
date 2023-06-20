@@ -23,6 +23,7 @@
     "framer-motion": "^10.12.16",
     "leaflet": "^1.9.4",
     "lightgallery": "^2.7.1",
+    "pandas": "^0.0.3",
     "react": "^18.2.0",
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
@@ -33,9 +34,11 @@
     "react-smooth-dnd": "^0.11.1",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
+    "styled-components": "^6.0.0-rc.3",
     "sweetalert2": "^11.7.12",
     "uuid": "^9.0.0",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
