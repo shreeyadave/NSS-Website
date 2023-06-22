@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 # Read data from Excel file
-excel_file_path = 'src/components/Pages/Team/alumni_data.xlsx'
+excel_file_path = 'src/components/Pages/Team/Team_data.xlsx'
 excel_data = pd.read_excel(excel_file_path, sheet_name=None)
 
 # Convert each sheet to a dictionary of records

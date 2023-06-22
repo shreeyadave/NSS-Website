@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Typography, Button, Grow, Grid, Box } from "@mui/material";
-import AlumniCard from "./AlumniCard";
+import TeamCard from "./TeamCard";
 import { Link, useParams } from "react-router-dom";
 import * as Data from './TeamData';
 import Layout from "../../Layout/Layout";
 
-const AlumniBatchPage = () => {
+const TeamBatchPage = () => {
   const { year } = useParams();
-  const alumniList = React.useMemo(() => {
+  const TeamList = React.useMemo(() => {
     const dataKey = `Team${year}`;
     return Data[dataKey] || [];
   }, [year]);
@@ -28,7 +28,7 @@ const AlumniBatchPage = () => {
         size="large"
         style={{ position: "fixed", top: "100px", left: "20px", zIndex: 1000 }}
       >
-        Back to Alumni
+        Back to Team
       </Button>
       <div style={{ overflowX: 'hidden' }}>
       <Grid container justifyContent="center" alignItems="center">
@@ -58,16 +58,16 @@ const AlumniBatchPage = () => {
       </Grid>
 
       <Grid container spacing={1} rowSpacing={4} sx={{ marginTop: '20px', marginLeft: '30px', marginBottom: '60px' }} alignItems={"center"} justifyContent={"center"}>
-        {alumniList.map((alumni, index) => (
+        {TeamList.map((Team, index) => (
           <Grow
-            key={alumni.name}
+            key={Team.name}
             in={animateCards}
             timeout={1000 + index * 150}
             style={{ transformOrigin: "150px 168px 0" }}
           >
             <Grid item xs={4} sm={4} md={2} lg={2} xl={2}>
               <Box>
-                <AlumniCard {...alumni} />
+                <TeamCard {...Team} />
               </Box>
             </Grid>
           </Grow>
@@ -78,4 +78,4 @@ const AlumniBatchPage = () => {
   );
 };
 
-export default AlumniBatchPage;
+export default TeamBatchPage;

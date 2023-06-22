@@ -1,11 +1,11 @@
 import React from "react";
 import { Typography, Grid, Box, Button, Grow, useScrollTrigger } from "@mui/material";
-import AlumniCard from "./AlumniCard";
+import TeamCard from "./TeamCard";
 import { Link } from 'react-router-dom';
 
-// Component for displaying a batch of alumni
-const AlumniBatch = ({ year, alumniList }) => {
-  const displayedAlumni = alumniList.slice(0, 6); // Get the first six alumni from the list
+// Component for displaying a batch of Team
+const TeamBatch = ({ year, TeamList }) => {
+  const displayedTeam = TeamList.slice(0, 6); // Get the first six Team from the list
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 100,
@@ -59,23 +59,23 @@ const AlumniBatch = ({ year, alumniList }) => {
           </span>
         </Box>
         <Grid container spacing={0.5} rowSpacing={0.25} sx={{ marginTop: "20px", marginLeft: "30px", marginBottom: "60px" }}>
-          {displayedAlumni.map((alumni, index) => (
+          {displayedTeam.map((Team, index) => (
             <Grow
-              key={alumni.name}
+              key={Team.name}
               in={trigger}
               timeout={1000 + index * 300}
               style={{ transformOrigin: "150px 168px 0" }}
             >
               <Grid item xs={4} sm={4} md={2} lg={2} xl={2}>
                 <Box>
-                  <AlumniCard {...alumni} />
+                  <TeamCard {...Team} />
                 </Box>
               </Grid>
             </Grow>
           ))}
         </Grid>
       </div>
-      {alumniList.length > 6 && (
+      {TeamList.length > 6 && (
         <Grow in={trigger} timeout={3000}>
           <Button
             component={Link}
@@ -91,4 +91,4 @@ const AlumniBatch = ({ year, alumniList }) => {
   );
 };
 
-export default AlumniBatch;
+export default TeamBatch;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Link, Box } from '@mui/material';
 import { LinkedIn, GitHub, Email } from '@mui/icons-material';
 
-// Card component for displaying alumni information
-const AlumniCard = ({ image, name, position, linkedin, github, gmail }) => {
+// Card component for displaying Team information
+const TeamCard = ({ image, name, position, linkedin, github, gmail }) => {
   const [isHovered, setIsHovered] = useState(false);
   const hasLinkedIn = !!linkedin; // Check if the LinkedIn link is provided
   const hasGitHub = !!github; // Check if the GitHub link is provided
@@ -126,4 +126,4 @@ const AlumniCard = ({ image, name, position, linkedin, github, gmail }) => {
   );
 };
 
-export default AlumniCard;
+export default TeamCard;

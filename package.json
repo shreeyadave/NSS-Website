@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.132",
     "@mui/material": "^5.13.3",
+    "@mui/styles": "^5.13.2",
     "array-move": "^4.0.0",
     "compressorjs": "^1.2.1",
     "firebase": "^9.22.1",
