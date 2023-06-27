@@ -20,6 +20,7 @@
     "@mui/styles": "^5.13.2",
     "array-move": "^4.0.0",
     "compressorjs": "^1.2.1",
+    "emailjs-com": "^3.2.0",
     "firebase": "^9.22.1",
     "framer-motion": "^10.12.16",
     "leaflet": "^1.9.4",

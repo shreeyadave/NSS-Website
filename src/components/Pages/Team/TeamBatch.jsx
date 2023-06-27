@@ -23,7 +23,14 @@ const TeamBatch = ({ year, TeamList }) => {
   if (year === 2000) {
     headingText = "Faculty";
     headingColor = "grey";
-  } else {
+  } else if(year === 2001){
+    headingText = "Our";
+    headingColor = "grey";
+  } else if(year === 2002){
+    headingText = "Co -";
+    headingColor = "grey";
+  }
+  else {
     headingText = `Team of`;
     headingColor = "grey";
   }
@@ -33,7 +40,14 @@ const TeamBatch = ({ year, TeamList }) => {
   if (year === 2000) {
     coordinatorText = "Advisor";
     coordinatorColor = "white";
-  } else {
+  } else if(year === 2001){
+    coordinatorText = "Founder";
+    coordinatorColor = "white";
+  } else if(year === 2002){
+    coordinatorText = "Founders";
+    coordinatorColor = "white";
+  }
+  else {
     coordinatorText = year;
     coordinatorColor = "white";
   }
