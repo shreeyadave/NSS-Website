@@ -59,47 +59,77 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 const images = [
   {
     url: "https://wallpapers.com/images/featured/wl9pg3zeygysq0ps.jpg",
-    title: "Morning Routines",
+    title: "Old age visits",
     width: "40%",
   },
   {
     url: "https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400",
-    title: "Industrial Trips",
+    title: "Orphanage visits",
     width: "20%",
   },
   {
-    url: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400",
-    title: "Collection Drives",
+    url: "src/components/Pages/Home/photos/Industrial.jpg",
+    title: "Industrial trips",
     width: "40%",
   },
   {
     url: "https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400",
-    title: "Educational Outreach",
+    title: "Projects",
     width: "38%",
   },
   {
     url: "https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400",
-    title: "Sustainable Development Drives",
+    title: "Workshops",
     width: "38%",
   },
   {
-    url: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400",
-    title: "Tree Planation Drives",
+    url: "src/components/Pages/Home/photos/Cleanliness.jpg",
+    title: "Cleanliness Drives",
     width: "24%",
   },
   {
     url: "https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400",
-    title: "Awareness Drives",
+    title: "Plantation Drives",
+    width: "20%",
+  },
+  {
+    url: "src/components/Pages/Home/photos/Camp.jpg",
+    title: "Camps",
     width: "40%",
   },
   {
-    url: "https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400",
-    title: "Old Age Visits",
+    url: "src/components/Pages/Home/photos/MorningRoutine.jpg",
+    title: "Morning Routines",
+    width: "40%",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
+    title: "Yoga Sessions",
+    width: "40%",
+  },
+  {
+    url: "src/components/Pages/Home/photos/Awareness.jpg",
+    title: "Awareness Campaigns",
+    width: "40%",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
+    title: "Collection Drives",
     width: "20%",
   },
   {
     url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
-    title: "Reading",
+    title: "Education",
+    width: "40%",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
+    title: "Talk Sessions",
+    width: "20%",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
+    title: "Parade",
     width: "40%",
   },
 ];

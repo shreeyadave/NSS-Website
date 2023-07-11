@@ -15,9 +15,12 @@ export default function ComitteeCard(props) {
         p: 2,
         m: 0,
         borderRadius: "8px",
+        // width:{
+        //   xs:"110%",
+        // },
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           height: "75px",
@@ -27,18 +30,18 @@ export default function ComitteeCard(props) {
           alignItems: "center",
           justifyContent: "center",
         }}
-      >
+      > */}
         {/* <SettingsSuggestIcon sx={{ color: "gray", fontSize: "2rem" }} /> */}
-      </Box>
+      {/* </Box> */}
+      {props.url && <img  height="150px" src={props.url} alt={props.title} />}
       <Box sx={{ fontFamily: "DM Sans", py: 1, fontSize: "1.8rem" }}>
         {props.title}
       </Box>
-      <Box sx={{ fontFamily: "DM Sans", color: "gray" }}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled.
+      <Box sx={{ fontFamily: "DM Sans", color: "gray" ,height:{
+        xs:690,lg:300
+      } }}>
+       {props.about}
       </Box>
-    </Stack>
+ </Stack> 
   );
 }
