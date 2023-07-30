@@ -54,7 +54,7 @@ const Contact = () => {
     const position = [21.164583, 72.785239]; // Coordinates for SVnit location
     return (
         <Layout>
-            <Typography variant='h1' alignItems='center' justifyContent='center' textAlign='center'>GET IN TOUCH</Typography>
+            <Typography variant='h1' alignItems='center' justifyContent='center' textAlign='center' paddingRight="50px">GET IN TOUCH</Typography>
             <Grid container direction={"column"} >
                 
                 <Button

@@ -18,6 +18,7 @@ import GallerySection from "./Home/GallerySection";
 import DutySection from "./Home/DutySection";
 import HeroSection from "./Home/HeroSection";
 import AboutSection from "./Home/AboutSection";
+import Example from "./Home/Carousel";
 
 function App() {
   const isPhone = false;
@@ -28,8 +29,9 @@ function App() {
         <CounterSection />
         <AboutSection />
         <GallerySection />
-        <ComitteeSection />
-        <DutySection />
+        <Example/>
+        {/* <ComitteeSection />
+        <DutySection /> */}
       </Layout>
     </>
   );

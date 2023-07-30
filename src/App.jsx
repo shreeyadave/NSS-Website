@@ -10,11 +10,13 @@ import Admin from "./components/Pages/Admin/Admin";
 import Team from "./components/Pages/Team/Team";
 import TeamBatchPage from "./components/Pages/Team/TeamBatchPage";
 import Contact from './components/Pages/Contact';
+import About from "./components/Pages/About";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/about" element={<About/>}/>
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/newpost" element={<NewPost />} />
