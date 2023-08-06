@@ -7,8 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const url = 'https://firebasestorage.googleapis.com/v0/b/nss-svnit.appspot.com/o/articleImages%2FReport%2FCamp%20Report1.pdf?alt=media&token=f04dc8ff-2bed-41ee-a5ee-98473afb3e98'
+// const url = 'https://firebasestorage.googleapis.com/v0/b/nss-svnit.appspot.com/o/articleImages%2FReport%2FCamp%20Report1.pdf?alt=media&token=f04dc8ff-2bed-41ee-a5ee-98473afb3e98'
 export default function ArticleCard(props) {
+  const url = props.download
   const theme = useTheme();
   
 const download =(url)=>{
@@ -31,8 +32,9 @@ const download =(url)=>{
           <Typography variant="subtitle1" color="text.secondary" component="div">
             {props.description}
           </Typography>
-          <Button onClick={()=>{download(url)}} >Download</Button>
+          <Button onClick={()=>{download(props.download)}} >Download</Button>
         </CardContent>
+        
         
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           {/* <Button>Download</Button> */}

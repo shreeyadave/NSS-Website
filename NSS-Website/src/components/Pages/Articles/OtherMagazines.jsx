@@ -12,20 +12,20 @@ import { Await } from 'react-router-dom';
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(2),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 
 export default function OtherMagazines(props) {
   const [post, setPost] = useState([]);
   const fetchPosts = async  () => {
-    // const q = query(collection(firestore, 'articles'), where("Type", "==", props.type));
-    const q = collection(firestore, 'articles');
-   
+    const q = query(collection(firestore, 'articles'), where("Type", "==", props.type));
+    // const q = collection(firestore, 'articles');
+    // console.log(q.data)
   return getDocs(q).then(posts => setPost(posts.docs) );
   }
   
@@ -58,7 +58,7 @@ export default function OtherMagazines(props) {
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} >
         
         {post.map((posts => <Grid item xs={2} sm={4} md={4} >
-            <ArticleCard name = {posts.data().Title} description = {posts.data().Description} type = {posts.data().Type} image = {posts.data().Image}></ArticleCard>
+            <ArticleCard name = {posts.data().Title} description = {posts.data().Description} type = {posts.data().Type} image = {posts.data().Image} download = {posts.data().Download}></ArticleCard>
           </Grid>))}
       </Grid>
       </Box>
