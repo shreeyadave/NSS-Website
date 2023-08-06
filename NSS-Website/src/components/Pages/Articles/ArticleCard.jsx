@@ -12,15 +12,14 @@ export default function ArticleCard(props) {
   const url = props.download
   const theme = useTheme();
   
-const download =(url)=>{
-  const filename = "file"
-  const aTag = document.createElement('a')
-  aTag.href = url
-  aTag.setAttribute("download", filename)
-  document.body.appendChild(aTag)
-  aTag.click()
-  aTag.remove()
-}
+  const openInNewTab = (url) => {
+    const newTab = window.open(url, '_blank');
+    if (newTab) {
+      newTab.focus();
+    } else {
+      alert('Pop-up blocker is preventing opening the link in a new tab.');
+    }
+  };
 
   return (
     <Card sx={{ display: 'flex' }} style={{height:'30vh', margin:'20px', width:'30vw'}}>
@@ -32,7 +31,7 @@ const download =(url)=>{
           <Typography variant="subtitle1" color="text.secondary" component="div">
             {props.description}
           </Typography>
-          <Button onClick={()=>{download(props.download)}} >Download</Button>
+          <Button onClick={()=>{openInNewTab(props.download)}} >Download</Button>
         </CardContent>
         
         
